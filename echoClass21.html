@@ -1,0 +1,133 @@
+<html>
+
+<head>
+   <title>
+   </title>
+   <style>
+      * {
+         margin: 0px;
+         padding: 0;
+         box-sizing: border-box;
+      }
+
+      .box {
+         display: flex;
+         justify-content: center;
+         color: white;
+      }
+
+      .Num {
+         border: 1px solid white;
+         width: 10%;
+         padding: 10px;
+         text-align: center;
+         border-radius: 10px;
+      }
+
+
+      .Names {
+         border: 1px solid white;
+         width: 79%;
+         padding: 10px;
+         border-radius: 10px;
+      }
+
+      #inp {
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         justify-content: center;
+         background: #5E6289;
+         padding: 10px;
+      }
+
+      #input {
+         width: 80%;
+         height: 50px;
+         ;
+         font-size: 20px;
+         border-radius: 10px;
+         outline: none;
+      }
+
+      h1 {
+         text-align: center;
+         background: #5E6289;
+         color: #0FA;
+         padding: 5px;
+      }
+
+      h2 {
+         text-align: center;
+         padding: 10px;
+      }
+
+      button {
+         margin: 10px;
+         padding: 10px;
+         background-color: black;
+         color: #BF7327;
+         outline: none;
+         border-radius: 10px;
+      }
+
+      .box:nth-of-type(3n+1) {
+         background: #9296C6;
+      }
+
+      .box:nth-of-type(3n+2) {
+         background: #262A53;
+      }
+
+      .box:nth-of-type(3n+3) {
+         background: #2A2A34;
+      }
+   </style>
+</head>
+
+<body>
+   <container>
+      <h1 style="color:gold">ALHAMDULILLAH</h1>
+      <h1 class="cont">Echo 2021 Duty watch list</h1>
+      <div id="inp" class="cont">
+         <input type="text" id="input" placeholder="Enter your name..." value="" />
+         <button id="btn" class="cont">Add My name</button>
+      </div>
+   </container>
+   <section id="section">
+      <h2>Your watch is given below</h>
+   </section>
+   <script>
+      let button = document.getElementById('btn');
+      let arr = [];
+      let names = document.getElementById('input');
+      let section = document.getElementById('section');
+      //
+      ////
+      //
+      button.addEventListener('click', function() {
+
+         val = names.value;
+         if (val == '') {
+            alert('Please enter your name')
+         } else {
+
+            names.value = '';
+            arr.push(val);
+            let newBox = document.createElement('div');
+            newBox.classList.add('box');
+            let newNum = document.createElement('div');
+            newNum.classList.add('Num');
+            newNum.innerText = arr.length;
+            let newNames = document.createElement('div');
+            newNames.innerText = val;
+            newNames.classList.add('Names');
+            newBox.appendChild(newNum);
+            newBox.appendChild(newNames);
+            section.appendChild(newBox);
+         }
+      })
+   </script>
+</body>
+
+</html>
